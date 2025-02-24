@@ -1,0 +1,145 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-02-24T12:44:00-08:00",
+  "images": [],
+  "categories": {
+    "research": {
+      "genomics": {
+        "description": "DNA sequencing and genomic analysis visualizations",
+        "requiredImages": [
+          {
+            "title": "DNA Sequencing Workflow",
+            "description": "Modern DNA sequencing pipeline visualization",
+            "specs": {
+              "minDimensions": {"width": 1200, "height": 800},
+              "format": "PNG",
+              "style": "Technical diagram"
+            }
+          },
+          {
+            "title": "Genomic Data Analysis",
+            "description": "Visual representation of genomic data analysis",
+            "specs": {
+              "minDimensions": {"width": 1200, "height": 800},
+              "format": "PNG",
+              "style": "Data visualization"
+            }
+          }
+        ]
+      },
+      "proteomics": {
+        "description": "Protein structure and analysis visualizations",
+        "requiredImages": [
+          {
+            "title": "Protein Structure Analysis",
+            "description": "3D protein structure visualization with analysis overlay",
+            "specs": {
+              "minDimensions": {"width": 1200, "height": 1200},
+              "format": "PNG",
+              "style": "3D molecular visualization"
+            }
+          }
+        ]
+      },
+      "quantum_biology": {
+        "description": "Quantum effects in biological systems",
+        "requiredImages": [
+          {
+            "title": "Quantum Coherence in Photosynthesis",
+            "description": "Visualization of quantum coherence effects in photosynthetic complexes",
+            "specs": {
+              "minDimensions": {"width": 1200, "height": 800},
+              "format": "PNG",
+              "style": "Scientific illustration"
+            }
+          }
+        ]
+      },
+      "machine_learning": {
+        "description": "ML applications in biological research",
+        "requiredImages": [
+          {
+            "title": "Neural Network Architecture",
+            "description": "Specialized neural network for biological data analysis",
+            "specs": {
+              "minDimensions": {"width": 1200, "height": 800},
+              "format": "PNG",
+              "style": "Technical diagram"
+            }
+          }
+        ]
+      },
+      "systems_biology": {
+        "description": "Biological networks and systems analysis",
+        "requiredImages": [
+          {
+            "title": "Metabolic Network Analysis",
+            "description": "Complex biological network visualization",
+            "specs": {
+              "minDimensions": {"width": 1500, "height": 1000},
+              "format": "PNG",
+              "style": "Network diagram"
+            }
+          }
+        ]
+      }
+    },
+    "tutorials": {
+      "ngs_analysis": {
+        "description": "NGS analysis workflow tutorials",
+        "requiredImages": [
+          {
+            "title": "NGS Analysis Pipeline",
+            "description": "Step-by-step NGS analysis workflow",
+            "specs": {
+              "minDimensions": {"width": 1200, "height": 600},
+              "format": "PNG",
+              "style": "Flow diagram"
+            }
+          }
+        ]
+      },
+      "structure_prediction": {
+        "description": "Protein structure prediction tutorials",
+        "requiredImages": [
+          {
+            "title": "Structure Prediction Workflow",
+            "description": "Protein structure prediction pipeline visualization",
+            "specs": {
+              "minDimensions": {"width": 1200, "height": 800},
+              "format": "PNG",
+              "style": "Technical diagram"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "imageTemplate": {
+    "id": "",
+    "filename": "",
+    "title": "",
+    "description": "",
+    "category": "",
+    "subcategory": "",
+    "dimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "fileSize": "",
+    "format": "",
+    "generated": {
+      "date": "",
+      "tool": "everart-server",
+      "prompt": "",
+      "parameters": {}
+    },
+    "attribution": {
+      "license": "CC BY-SA 4.0",
+      "usage": "Scientific visualization for educational purposes"
+    },
+    "tags": [],
+    "altText": "",
+    "caption": ""
+  }
+}
