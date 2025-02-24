@@ -1,0 +1,190 @@
+# Site Settings
+title: Bioinformatics & Computational Biology Hub
+description: >-
+  Leading platform for bioinformatics, computational biology, and data science 
+  in life sciences. Explore cutting-edge methods in genomics, molecular modeling, 
+  and data analysis.
+baseurl: ""
+url: "https://rohitrrj.github.io" # Replace with your domain
+lang: en
+timezone: America/Los_Angeles
+
+# SEO Settings
+twitter:
+  username: rohitrrj
+  card: summary_large_image
+logo: /assets/images/logo/logo.svg #Add a logo
+social:
+  name: Bioinformatics & Computational Biology Hub
+  links:
+    - https://x.com/rohitrrj
+    - https://www.linkedin.com/in/rohitjadhav1/
+    - https://github.com/rohitrrj
+
+# Content Organization
+content_categories:
+  - genomics
+  - proteomics
+  - systems-biology
+  - machine-learning
+  - data-analysis
+
+# Learning Paths
+learning_tracks:
+  - fundamentals
+  - advanced
+  - specialized
+
+# Analytics and Advertising
+google_analytics: G-XE2LSJ1C08
+adsense:
+  publisher_id: pub-9284855530434900
+  slots:
+    content: pub-9284855530434900
+    sidebar: pub-9284855530434900
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+paginate: 12
+paginate_path: "/blog/page:num/"
+
+# Collections
+collections:
+  research:
+    output: true
+    permalink: /research/:path/
+  tutorials:
+    output: true
+    permalink: /tutorials/:path/
+  case_studies:
+    output: true
+    permalink: /case-studies/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: "research"
+    values:
+      layout: "research"
+      sidebar: true
+  - scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "tutorial"
+      sidebar: true
+  - scope:
+      path: ""
+      type: "case_studies"
+    values:
+      layout: "case_study"
+      sidebar: true
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-include-cache
+  - jekyll-mentions
+  - jemoji
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .github
+  - README.md
+  - LICENSE
+  - CNAME
+  - Rakefile
+  - package.json
+  - package-lock.json
+
+# Search Settings
+search:
+  enabled: true
+  index_name: bioinfo_hub # Updated index name
+  api_key: your_algolia_api_key # To be updated later
+
+# Comments
+comments:
+  provider: disqus
+  disqus:
+    shortname: rohitrrj
+
+# Social Sharing
+social_share:
+  twitter: true
+  facebook: true
+  linkedin: true
+  reddit: true
+
+# Newsletter
+newsletter:
+  enabled: true
+  provider: mailchimp
+  mailchimp:
+    endpoint: https://yourdomain.us1.list-manage.com/subscribe/post?u=XXXXXXXXXXXXXXXXXXXXXXXX&id=XXXXXXXXXXXX # To be updated later
+
+# Content Security Policy
+content_security_policy:
+  default_src:
+    - "'self'"
+    - "*.yourdomain.com" # Replace with your domain
+  script_src:
+    - "'self'"
+    - "'unsafe-inline'"
+    - "*.google-analytics.com"
+    - "*.googletagmanager.com"
+    - "*.disqus.com"
+    - "*.algolia.net"
+    - "https://pagead2.googlesyndication.com"
+    - "*.adsbygoogle.js"
+  style_src:
+    - "'self'"
+    - "'unsafe-inline'"
+  img_src:
+    - "'self'"
+    - "data:"
+    - "*.yourdomain.com" # Replace with your domain
+    - "*.google-analytics.com"
+    - "*.gravatar.com"
+    - "https://pagead2.googlesyndication.com"
+  connect_src:
+    - "'self'"
+    - "*.algolia.net"
+    - "*.google-analytics.com"
+    - "https://pagead2.googlesyndication.com"
+
+# Performance Optimization
+sass:
+  style: compressed
+  sourcemap: never
+
+# Compression
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: [development]
+  blanklines: false
+  profile: false
+  startings: [html, head, body]

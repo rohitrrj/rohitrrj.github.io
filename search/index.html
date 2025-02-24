@@ -1,0 +1,285 @@
+---
+layout: default
+title: Search
+description: Search through our articles, research papers, tutorials, and case studies
+---
+
+<div class="search-page">
+    <div class="container">
+        <div class="search-header">
+            <h1>Search</h1>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search articles, research, tutorials..." autofocus>
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div id="search-results" class="search-results">
+            <!-- Results will be dynamically inserted here -->
+        </div>
+
+        <div id="search-empty" class="search-empty" style="display: none;">
+            <p>No results found for your search. Try different keywords or check your spelling.</p>
+        </div>
+
+        <div id="search-loading" class="search-loading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Searching...</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.search-page {
+    padding: 6rem 0;
+    min-height: calc(100vh - 80px);
+}
+
+.search-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.search-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1.5rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,255,136,0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.search-results {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.result-item {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.result-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.result-item h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.result-item h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.result-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.result-meta span {
+    margin-right: 1rem;
+}
+
+.result-excerpt {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.result-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.result-tag {
+    padding: 0.25rem 0.75rem;
+    background: var(--light-gray);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.search-empty {
+    text-align: center;
+    padding: 3rem 0;
+    color: #666;
+}
+
+.search-loading {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--light-gray);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .search-page {
+        padding: 4rem 0;
+    }
+
+    .search-box input {
+        font-size: 1rem;
+        padding: 0.75rem 2.5rem 0.75rem 1rem;
+    }
+
+    .result-item {
+        padding: 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const searchEmpty = document.getElementById('search-empty');
+    const searchLoading = document.getElementById('search-loading');
+    let searchIndex = [];
+    let searchTimeout;
+
+    // Load search index
+    fetch('/search-index.json')
+        .then(response => response.json())
+        .then(data => {
+            searchIndex = data;
+        })
+        .catch(error => {
+            console.error('Error loading search index:', error);
+        });
+
+    // Search function
+    function performSearch(query) {
+        query = query.toLowerCase();
+        
+        if (!query) {
+            searchResults.innerHTML = '';
+            searchEmpty.style.display = 'none';
+            return;
+        }
+
+        const results = searchIndex.filter(item => {
+            const searchContent = [
+                item.title,
+                item.description,
+                item.content,
+                item.excerpt,
+                (item.tags || []).join(' '),
+                (item.categories || []).join(' ')
+            ].join(' ').toLowerCase();
+
+            return searchContent.includes(query);
+        });
+
+        displayResults(results);
+    }
+
+    // Display results
+    function displayResults(results) {
+        if (results.length === 0) {
+            searchResults.innerHTML = '';
+            searchEmpty.style.display = 'block';
+            return;
+        }
+
+        searchEmpty.style.display = 'none';
+        searchResults.innerHTML = results.map(item => `
+            <article class="result-item">
+                <h2><a href="${item.url}">${item.title}</a></h2>
+                <div class="result-meta">
+                    ${item.date ? `<span>${item.date}</span>` : ''}
+                    ${item.author ? `<span>by ${item.author}</span>` : ''}
+                    ${item.type ? `<span>${item.type}</span>` : ''}
+                </div>
+                <p class="result-excerpt">${item.excerpt}</p>
+                ${item.tags ? `
+                    <div class="result-tags">
+                        ${item.tags.map(tag => `
+                            <a href="/tags/${tag}" class="result-tag">#${tag}</a>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </article>
+        `).join('');
+    }
+
+    // Handle search input
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim();
+        
+        clearTimeout(searchTimeout);
+        
+        if (query) {
+            searchLoading.style.display = 'block';
+            searchTimeout = setTimeout(() => {
+                performSearch(query);
+                searchLoading.style.display = 'none';
+            }, 300);
+        } else {
+            searchResults.innerHTML = '';
+            searchEmpty.style.display = 'none';
+            searchLoading.style.display = 'none';
+        }
+    });
+
+    // Handle URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryParam = urlParams.get('q');
+    if (queryParam) {
+        searchInput.value = queryParam;
+        performSearch(queryParam);
+    }
+});
+</script>

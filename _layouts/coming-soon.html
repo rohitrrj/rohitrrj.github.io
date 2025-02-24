@@ -1,0 +1,271 @@
+---
+layout: default
+---
+
+<div class="coming-soon">
+    <div class="hero">
+        <div class="container">
+            <h1>{{ page.title }}</h1>
+            <p class="description">{{ page.description }}</p>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if page.features %}
+        <section class="features">
+            <div class="features-grid">
+                {% for feature in page.features %}
+                <div class="feature-card">
+                    <h3>{{ feature.title }}</h3>
+                    <p>{{ feature.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if page.sections %}
+        <section class="sections">
+            <div class="sections-grid">
+                {% for section in page.sections %}
+                <a href="/{{ page.url | split: '/' | first }}/{{ section.path }}" class="section-card">
+                    <h3>{{ section.title }}</h3>
+                    <p>{{ section.description }}</p>
+                    <span class="coming-soon-badge">Coming Soon</span>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if page.signup %}
+        <section class="signup">
+            <div class="signup-content">
+                {% if page.newsletter %}
+                <h2>{{ page.newsletter.title }}</h2>
+                <p>{{ page.newsletter.description }}</p>
+                {% else %}
+                <h2>Get Early Access</h2>
+                <p>Sign up to be notified when this section launches and receive updates about new features and content.</p>
+                {% endif %}
+                <form class="signup-form" onsubmit="handleSignup(event)">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    {% if page.categories %}
+                    <div class="categories">
+                        <p>Interested in:</p>
+                        {% for category in page.categories %}
+                        <label class="category-checkbox">
+                            <input type="checkbox" name="categories[]" value="{{ category | downcase }}">
+                            <span>{{ category }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <button type="submit" class="button">Notify Me</button>
+                </form>
+            </div>
+        </section>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.coming-soon {
+    padding: 0;
+}
+
+.hero {
+    padding-top: calc(var(--nav-height) + var(--spacing-xl));
+    background: linear-gradient(to bottom, var(--light-gray), white);
+}
+
+.features {
+    margin: 4rem 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--light-gray);
+    transition: all var(--transition-base);
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.sections {
+    margin: 4rem 0;
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.section-card {
+    position: relative;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--light-gray);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+.section-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.section-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+}
+
+.signup {
+    margin: 6rem 0;
+    padding: 4rem 0;
+    background: var(--light-gray);
+    border-radius: var(--radius-lg);
+}
+
+.signup-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.signup-content h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.signup-content p {
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.signup-form input[type="email"] {
+    padding: 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    transition: border-color var(--transition-base);
+}
+
+.signup-form input[type="email"]:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.category-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.category-checkbox input {
+    accent-color: var(--accent-color);
+}
+
+.signup-form .button {
+    padding: 1rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.signup-form .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .features-grid,
+    .sections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .signup {
+        margin: 4rem 0;
+        padding: 2rem 1rem;
+    }
+}
+</style>
+
+<script>
+function handleSignup(event) {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.querySelector('input[type="email"]').value;
+    const categories = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(checkbox => checkbox.value);
+    
+    // Store signup data (in production this would be an API call)
+    console.log('Signup:', { email, categories });
+    
+    // Show success message
+    const button = form.querySelector('button');
+    const originalText = button.textContent;
+    button.textContent = 'Thanks for signing up!';
+    button.disabled = true;
+    button.style.backgroundColor = 'var(--success-color)';
+    
+    // Reset form after delay
+    setTimeout(() => {
+        form.reset();
+        button.textContent = originalText;
+        button.disabled = false;
+        button.style.backgroundColor = '';
+    }, 3000);
+}
+</script>

@@ -1,0 +1,78 @@
+/* Card Component */
+
+.card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all var(--transition-base);
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card--interactive {
+    cursor: pointer;
+}
+
+.card--interactive:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.card--interactive:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.card__header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.card__subtitle {
+    font-size: 1rem;
+    color: var(--light-text);
+}
+
+.card__content {
+    padding: var(--spacing-md);
+}
+
+.card__footer {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    background-color: var(--light-gray);
+}
+
+/* Card with Image */
+.card--image .card__image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Card Variations */
+.card--bordered {
+    border: 1px solid var(--border-color);
+}
+
+.card--shadowless {
+    box-shadow: none;
+}
+
+/* High Contrast Mode */
+@media (forced-colors: active) {
+    .card {
+        border: 1px solid ButtonText;
+    }
+}

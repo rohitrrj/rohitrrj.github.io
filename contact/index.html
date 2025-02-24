@@ -1,0 +1,385 @@
+---
+layout: default
+title: Contact Us
+description: Get in touch with our quantum biology experts for consulting, collaborations, or general inquiries
+---
+
+<div class="contact-page">
+    <div class="container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>Have questions about quantum biology or interested in collaboration? We'd love to hear from you.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-form-section">
+                <form id="contact-form" action="/api/contact" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="consulting">Consulting Services</option>
+                            <option value="collaboration">Research Collaboration</option>
+                            <option value="speaking">Speaking Engagement</option>
+                            <option value="tutorial">Tutorial Request</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter" value="yes">
+                            Subscribe to our newsletter for updates on quantum biology research
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label required">
+                            <input type="checkbox" name="privacy" required>
+                            I agree to the <a href="/privacy">privacy policy</a> and consent to being contacted
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info-section">
+                <div class="contact-info">
+                    <h2>Other Ways to Connect</h2>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>contact@rohitrrj.github.io</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>Not Available</p>
+                            <p class="contact-note"></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>San Francisco Bay Area, California</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Follow Us</h3>
+                        <div class="social-grid">
+                            <a href="https://x.com/rohitrrj" target="_blank" rel="noopener" class="social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                </svg>
+                                Twitter
+                            </a>
+                            <a href="https://www.linkedin.com/in/rohitjadhav1/" target="_blank" rel="noopener" class="social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/rohitrrj" target="_blank" rel="noopener" class="social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h3>What services do you offer?</h3>
+                            <p>We provide consulting, algorithm development, training, and research collaboration in quantum biology and computational genomics.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>How quickly do you respond?</h3>
+                            <p>We aim to respond to all inquiries within 24-48 business hours.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Do you offer remote services?</h3>
+                            <p>Yes, we work with clients globally through virtual meetings and collaboration tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.contact-page {
+    padding: 6rem 0;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contact-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,255,136,0.1);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-top: 0.25rem;
+}
+
+.checkbox-label.required {
+    color: var(--text-color);
+}
+
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.contact-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.contact-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-icon {
+    font-size: 2rem;
+}
+
+.contact-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.contact-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.social-links {
+    margin-top: 3rem;
+}
+
+.social-links h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--light-gray);
+    border-radius: 4px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.faq-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.faq-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 4rem 0;
+    }
+
+    .contact-header {
+        margin-bottom: 2rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                alert('Thank you for your message. We will get back to you soon!');
+            } else {
+                throw new Error('Something went wrong');
+            }
+        } catch (error) {
+            alert('Sorry, there was an error sending your message. Please try again later.');
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
+    });
+});
+</script>

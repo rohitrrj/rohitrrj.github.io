@@ -1,0 +1,63 @@
+<style>
+/* Critical Path CSS */
+:root {
+    --primary-color: #1a1a2e;
+    --accent-color: #00ff88;
+    --background-color: #ffffff;
+    --text-color: #2c3e50;
+    --nav-height: 64px;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 8px;
+    z-index: 2000;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Base Critical Styles */
+body {
+    margin: 0;
+    font-family: -apple-system, system-ui, sans-serif;
+    line-height: 1.5;
+}
+
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: var(--background-color);
+    z-index: 1000;
+}
+
+.main-content {
+    margin-top: var(--nav-height);
+}
+
+/* Loading State */
+.js-loading {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Font Loading Optimization */
+@font-face {
+    font-family: 'SystemFont';
+    src: local(-apple-system),
+         local(BlinkMacSystemFont),
+         local('Segoe UI'),
+         local(Roboto);
+    font-display: swap;
+}
+</style>

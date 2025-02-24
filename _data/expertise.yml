@@ -1,0 +1,103 @@
+# Core Research Areas
+research_areas:
+  - title: "Bioinformatics & Data Science"
+    topics:
+      - "Next-Generation Sequencing Analysis"
+      - "Genomics and Transcriptomics"
+      - "Machine Learning in Biology"
+      - "Statistical Data Analysis"
+      - "High-Performance Computing"
+
+  - title: "Computational Biology"
+    topics:
+      - "Protein Structure Analysis"
+      - "Molecular Dynamics"
+      - "Systems Biology"
+      - "Network Analysis"
+      - "Pathway Analysis"
+
+  - title: "Emerging Technologies"
+    topics:
+      - "Quantum Computing Applications"
+      - "AI in Drug Discovery"
+      - "Cloud Computing"
+      - "Advanced Visualization"
+      - "Quantum Biology"
+
+# Technical Skills
+technical_skills:
+  - category: "Programming Languages"
+    skills:
+      - "Python"
+      - "R"
+      - "Bash/Shell"
+      - "SQL"
+      - "C++"
+
+  - category: "Bioinformatics Tools"
+    skills:
+      - "NGS Analysis Pipelines"
+      - "Genomic Analysis Tools"
+      - "Structural Biology Software"
+      - "Data Visualization Tools"
+      - "Database Management"
+
+  - category: "Data Science"
+    skills:
+      - "Machine Learning"
+      - "Statistical Analysis"
+      - "Data Mining"
+      - "Big Data Processing"
+      - "Cloud Computing"
+
+# Specialized Knowledge
+specialized_areas:
+  - area: "Genomic Analysis"
+    subtopics:
+      - "Variant Calling"
+      - "RNA-Seq Analysis"
+      - "ChIP-Seq Analysis"
+      - "Metagenomics"
+      - "Comparative Genomics"
+
+  - area: "Molecular Modeling"
+    subtopics:
+      - "Protein Structure Prediction"
+      - "Molecular Dynamics"
+      - "Drug-Target Interaction"
+      - "Virtual Screening"
+      - "Structure-Based Design"
+
+  - area: "Data Analysis"
+    subtopics:
+      - "Statistical Methods"
+      - "Pattern Recognition"
+      - "Network Analysis"
+      - "Multivariate Analysis"
+      - "Time Series Analysis"
+
+# Educational Resources
+educational_tracks:
+  - track: "Fundamentals"
+    modules:
+      - "Introduction to Bioinformatics"
+      - "Basic Programming Skills"
+      - "Statistical Foundations"
+      - "Molecular Biology Basics"
+      - "Data Analysis Fundamentals"
+
+  - track: "Advanced Topics"
+    modules:
+      - "Advanced Genomic Analysis"
+      - "Machine Learning Applications"
+      - "High-Performance Computing"
+      - "Advanced Statistics"
+      - "Research Methods"
+
+  - track: "Specialized Training"
+    modules:
+      - "NGS Data Analysis"
+      - "Structural Bioinformatics"
+      - "Systems Biology"
+      - "Quantum Computing Basics"
+      - "Cloud Computing in Biology"

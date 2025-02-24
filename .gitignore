@@ -1,0 +1,163 @@
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Node modules and logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.yarn/
+.pnp.*
+
+# Ruby environment
+.ruby-version
+.ruby-gemset
+Gemfile.lock
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+.cache/
+
+# Build and dependency directories
+dist/
+build/
+out/
+.next/
+coverage/
+resources/Expertise/
+
+# Local development files
+*.local
+local.*
+
+# Debug files
+*.debug
+debug/
+debug.log
+
+# System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Backup files
+*.bak
+*.backup
+*~
+*.swp
+
+# Large media files
+*.mp4
+*.mov
+*.wmv
+*.avi
+*.flv
+*.mkv
+*.webm
+
+# Compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Private keys and certificates
+*.pem
+*.key
+*.cert
+*.crt
+
+# API documentation
+/doc/api/
+/doc/app/
+/rdoc/
+
+# Test coverage
+/coverage/
+.nyc_output/
+/spec/reports/
+/test/reports/
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# dotenv environment variable files
+.env*
+!.env.example
+
+# Local Netlify folder
+.netlify
+
+# Cloudflare Workers
+/workers-site
+.workers-site/
+
+# Generated files
+robots.txt
+sitemap.xml
+feed.xml
+atom.xml
+search-index.json
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Draft content
+_drafts/
+drafts/
+
+# Temporary asset files
+assets/temp/
+assets/uploads/temp/
+
+# Local configuration overrides
+_config.local.yml
+_config.development.yml

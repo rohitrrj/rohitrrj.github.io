@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    
+    <!-- PWA Support -->
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- SEO -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    {% if page.image %}
+    <meta property="og:image" content="{{ site.url }}{{ page.image }}">
+    {% endif %}
+    
+    <!-- Preload Critical Assets -->
+    
+    {% if page.critical_css %}
+    <link rel="preload" href="{{ page.critical_css }}" as="style">
+    {% endif %}
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Critical CSS -->
+    {% include critical-css.html %}
+    
+    <!-- Deferred Styles -->
+    <link rel="preload" href="/assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/navigation.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/layout.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/navigation.css">
+        <link rel="stylesheet" href="/assets/css/layout.css">
+    </noscript>
+    
+    <!-- Inline SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a1a2e'/><g transform='translate(16,16)' stroke='%2300ff88' fill='none'><path d='M-8,0 C-4,-4 4,-4 8,0' stroke-width='2' opacity='0.8'/><path d='M-8,0 C-4,4 4,4 8,0' stroke-width='2' opacity='0.8'/><circle cx='-4' cy='-2' r='1.5' fill='%2300ff88'/><circle cx='4' cy='-2' r='1.5' fill='%2300ff88'/><circle cx='-4' cy='2' r='1.5' fill='%2300ff88'/><circle cx='4' cy='2' r='1.5' fill='%2300ff88'/></g></svg>">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9284855530434900"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+  <nav class="nav-container">
+    <div class="nav-bar">
+      <a href="/" class="nav-logo">
+        {% if site.logo %}
+        <img src="{{ site.logo }}" alt="{{ site.title }}" class="nav-logo__image">
+        {% endif %}
+      </a>
+
+      <button class="mobile-menu-button"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="nav-menu">
+        <div class="hamburger-icon">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </div>
+      </button>
+
+      <ul id="nav-menu"
+          class="nav-menu"
+          role="menu"
+          aria-label="Main navigation">
+        <li class="nav-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/research"
+             class="nav-link has-dropdown"
+             role="menuitem"
+             aria-haspopup="true"
+             aria-expanded="false">Research</a>
+          <div class="dropdown-menu" role="menu" aria-label="Research sections">
+            <a href="/research/genomics/" class="dropdown-item">Genomics</a>
+            <a href="/research/proteomics/" class="dropdown-item">Proteomics</a>
+            <a href="/research/systems-biology/" class="dropdown-item">Systems Biology</a>
+            <a href="/research/machine-learning/" class="dropdown-item">Machine Learning</a>
+            <a href="/research/quantum-biology/" class="dropdown-item">Quantum Biology</a>
+            <a href="/research/quantum-dna-sequencing/" class="dropdown-item">Quantum DNA Sequencing</a>
+            <a href="/research/quantum-photosynthesis/" class="dropdown-item">Quantum Effects in Photosynthesis</a>
+            <a href="/research/quantum-protein-folding/" class="dropdown-item">Quantum-Assisted Protein Folding</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/tools"
+             class="nav-link has-dropdown"
+             role="menuitem"
+             aria-haspopup="true"
+             aria-expanded="false">Tools</a>
+          <div class="dropdown-menu" role="menu" aria-label="Tools sections">
+            <a href="/tools/ngs-analysis/" class="dropdown-item">NGS Analysis</a>
+            <a href="/tools/structure-prediction/" class="dropdown-item">Structure Prediction</a>
+            <a href="/tools/visualization/" class="dropdown-item">Visualization</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/learn"
+             class="nav-link has-dropdown"
+             role="menuitem"
+             aria-haspopup="true"
+             aria-expanded="false">Learn</a>
+          <div class="dropdown-menu" role="menu" aria-label="Learning sections">
+            <a href="/learn/tutorials/" class="dropdown-item">Tutorials</a>
+            <a href="/learn/workshops/" class="dropdown-item">Workshops</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/resources"
+             class="nav-link has-dropdown"
+             role="menuitem"
+             aria-haspopup="true"
+             aria-expanded="false">Resources</a>
+          <div class="dropdown-menu" role="menu" aria-label="Resource sections">
+            <a href="/resources/datasets/" class="dropdown-item">Datasets</a>
+            <a href="/resources/publications/" class="dropdown-item">Publications</a>
+            <a href="/resources/Expertise/" class="dropdown-item">Expertise</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#"
+             class="nav-link has-dropdown"
+             role="menuitem"
+             aria-haspopup="true"
+             aria-expanded="false">About</a>
+          <div class="dropdown-menu" role="menu" aria-label="About sections">
+            <a href="/team/" class="dropdown-item">Team</a>
+            <a href="/careers/" class="dropdown-item">Careers</a>
+            <a href="/consulting/" class="dropdown-item">Consulting</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content" role="main">
+        {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Performance monitoring
+        window.performance.mark('scriptStart');
+        
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/assets/js/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Load non-critical resources
+        function loadDeferredStyles() {
+            const elements = document.querySelectorAll("link[rel='preload'][as='style']");
+            elements.forEach(el => {
+                el.onload = null;
+                el.rel = 'stylesheet';
+            });
+        }
+
+        // Performance monitoring - Navigation Timing API
+        window.addEventListener('load', () => {
+            window.performance.mark('loadComplete');
+            window.performance.measure('pageLoad', 'scriptStart', 'loadComplete');
+            
+            const timing = performance.getEntriesByType('navigation')[0];
+            const measures = {
+                dns: timing.domainLookupEnd - timing.domainLookupStart,
+                connection: timing.connectEnd - timing.connectStart,
+                ttfb: timing.responseStart - timing.requestStart,
+                domLoad: timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart,
+                windowLoad: timing.loadEventEnd - timing.loadEventStart
+            };
+            
+            // Log performance metrics
+            console.log('Performance metrics:', measures);
+        });
+    </script>
+    
+    <!-- Navigation Script -->
+    <script src="/assets/js/navigation.js" async></script>
+</body>
+</html>
