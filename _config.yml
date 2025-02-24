@@ -120,8 +120,9 @@ exclude:
 # Search Settings
 search:
   enabled: true
-  index_name: bioinfo_hub # Updated index name
-  api_key: your_algolia_api_key # To be updated later
+  index_name: bioinfo_hub
+  application_id: FRJFIDF38Z
+  api_key: a44c4901ef1b50dcdc1d2c5874c80b61
 
 # Comments
 comments:

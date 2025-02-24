@@ -234,8 +234,9 @@ body {
 .nav-bar {
     position: relative;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(200px, 400px) 1fr auto;
     align-items: center;
+    gap: 1rem;
     padding: 0 var(--spacing-lg);
     width: 100%;
     max-width: var(--max-width);
