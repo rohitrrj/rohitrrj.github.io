@@ -36,15 +36,10 @@
     <!-- Critical CSS -->
     {% include critical-css.html %}
     
-    <!-- Deferred Styles -->
-    <link rel="preload" href="/assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/assets/css/navigation.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/assets/css/layout.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="/assets/css/style.css">
-        <link rel="stylesheet" href="/assets/css/navigation.css">
-        <link rel="stylesheet" href="/assets/css/layout.css">
-    </noscript>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
     
     <!-- Inline SVG Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a1a2e'/><g transform='translate(16,16)' stroke='%2300ff88' fill='none'><path d='M-8,0 C-4,-4 4,-4 8,0' stroke-width='2' opacity='0.8'/><path d='M-8,0 C-4,4 4,4 8,0' stroke-width='2' opacity='0.8'/><circle cx='-4' cy='-2' r='1.5' fill='%2300ff88'/><circle cx='4' cy='-2' r='1.5' fill='%2300ff88'/><circle cx='-4' cy='2' r='1.5' fill='%2300ff88'/><circle cx='4' cy='2' r='1.5' fill='%2300ff88'/></g></svg>">
@@ -181,33 +176,14 @@
         </div>
     </footer>
 
+    <!-- Navigation Script -->
+    <script src="/assets/js/navigation.js"></script>
+    
     <!-- Scripts -->
     <script>
         // Performance monitoring
         window.performance.mark('scriptStart');
         
-        // Register Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/assets/js/service-worker.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
-
-        // Load non-critical resources
-        function loadDeferredStyles() {
-            const elements = document.querySelectorAll("link[rel='preload'][as='style']");
-            elements.forEach(el => {
-                el.onload = null;
-                el.rel = 'stylesheet';
-            });
-        }
-
         // Performance monitoring - Navigation Timing API
         window.addEventListener('load', () => {
             window.performance.mark('loadComplete');
@@ -225,9 +201,19 @@
             // Log performance metrics
             console.log('Performance metrics:', measures);
         });
+        
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/assets/js/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
     </script>
-    
-    <!-- Navigation Script -->
-    <script src="/assets/js/navigation.js" async></script>
 </body>
 </html>
