@@ -1,0 +1,43 @@
+---
+layout: default
+title: Blog
+description: Writing on agentic AI, computational biology, and AI-driven drug discovery.
+---
+
+<div class="blog-page-hero">
+  <div class="container">
+    <div class="section-label">Blog</div>
+    <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 12px;">Writing</h1>
+    <p style="font-size: 1.05rem; max-width: 560px;">Thoughts on agentic AI, computational biology methods, translational medicine, and the future of AI-driven drug discovery.</p>
+  </div>
+</div>
+
+<div class="blog-page-list">
+  <div class="container">
+    {% if site.posts.size > 0 %}
+    <div class="blog-page-grid">
+      {% for post in site.posts %}
+      <div class="blog-page-card fade-up">
+        <div>
+          <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          <p>{{ post.description | default: post.excerpt | strip_html | truncate: 160 }}</p>
+          {% if post.tags %}
+          <div class="blog-card-tags">
+            {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="blog-page-meta">{{ post.date | date: "%b %d, %Y" }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="blog-empty-state">
+      <h3>Posts coming soon</h3>
+      <p>Writing in progress — check back shortly.</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
