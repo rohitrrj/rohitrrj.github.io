@@ -77,10 +77,10 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         const dy = nodes[i].y - nodes[j].y;
         const d  = Math.sqrt(dx * dx + dy * dy);
         if (d < MAX_D) {
-          const a = (1 - d / MAX_D) * 0.18;
+          const a = (1 - d / MAX_D) * 0.45;
           const c = nodes[i].col;
           ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${a})`;
-          ctx.lineWidth = 0.7;
+          ctx.lineWidth = 1.4;
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
