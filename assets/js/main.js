@@ -124,13 +124,21 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   }
 
   const ro = new ResizeObserver(() => {
+    const oldW = W, oldH = H;
     resize();
-    if (nodes) nodes.forEach(n => { n.x = Math.min(n.x, W); n.y = Math.min(n.y, H); });
+    if (nodes && oldW > 0 && oldH > 0) {
+      // Proportionally rescale existing node positions to new canvas size
+      const sx = W / oldW, sy = H / oldH;
+      nodes.forEach(n => { n.x *= sx; n.y *= sy; });
+    }
   });
   ro.observe(canvas);
 
-  init();
-  (function loop() { update(); draw(); requestAnimationFrame(loop); })();
+  // Defer init to first rAF so layout is fully committed before reading dimensions
+  requestAnimationFrame(() => {
+    init();
+    (function loop() { update(); draw(); requestAnimationFrame(loop); })();
+  });
 })();
 
 // ─── Stat Counter Animation ───────────────────────────────────────
