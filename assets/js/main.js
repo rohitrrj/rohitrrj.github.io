@@ -51,8 +51,9 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   let W, H, nodes;
 
   function resize() {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
+    const rect = canvas.getBoundingClientRect();
+    W = canvas.width  = Math.round(rect.width)  || window.innerWidth;
+    H = canvas.height = Math.round(rect.height) || window.innerHeight;
   }
 
   function mkNode() {
@@ -122,10 +123,11 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     nodes = Array.from({ length: COUNT }, mkNode);
   }
 
-  window.addEventListener('resize', () => {
+  const ro = new ResizeObserver(() => {
     resize();
-    nodes.forEach(n => { n.x = Math.min(n.x, W); n.y = Math.min(n.y, H); });
-  }, { passive: true });
+    if (nodes) nodes.forEach(n => { n.x = Math.min(n.x, W); n.y = Math.min(n.y, H); });
+  });
+  ro.observe(canvas);
 
   init();
   (function loop() { update(); draw(); requestAnimationFrame(loop); })();
